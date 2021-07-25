@@ -11,9 +11,8 @@
   </head>
 
   <body>
-    <div class="container">
-      <%= render 'layouts/flash_tasks' %>
-      
-    <%= yield %>
+    <% flash.each do |task_type, task| %>
+       <div><%= task %></div>
+    <% end %>
   </body>
 </html>

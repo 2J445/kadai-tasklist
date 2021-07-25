@@ -11,9 +11,12 @@
   </head>
 
   <body>
-    <div class="container">
-      <%= render 'layouts/flash_tasks' %>
+      <h1>タスクリスト一覧</h1>
       
-    <%= yield %>
+      <ul>
+          <% @tasks.each do |task| %>
+          <li><%= task.content %></li>
+          <% end %>
+      </ul>
   </body>
 </html>
