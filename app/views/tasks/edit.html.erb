@@ -13,7 +13,7 @@
   <body>
       <h1>id: <%= @task.id %> のタスク編集ページ</h1>
       
-      <%= form_with(model: @message) do |f| %>
+      <%= form_with(model: @task) do |f| %>
       <%= f.label :content, '内容' %>
       <%= f.text_field :content %>
 
