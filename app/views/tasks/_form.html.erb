@@ -1,9 +1,9 @@
 <%= form_with(model: task) do |f| %>
-  <% if message.errors.any? %>
+  <% if task.errors.any? %>
     <div id="error_explanation">
       <ul>
-        <% message.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+        <% task.errors.full_task.each do |tsk| %>
+          <li><%= tsk %></li>
         <% end %>
       </ul>
     </div>
