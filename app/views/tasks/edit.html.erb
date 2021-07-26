@@ -1,16 +1,4 @@
-<html>
-  <head>
-    <title>Tasklist</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-      <h1>id: <%= @task.id %> のタスク編集ページ</h1>
+<h1>id: <%= @task.id %> のタスク編集ページ</h1>
       
       <%= form_with(model: @task) do |f| %>
       <%= f.label :content, '内容' %>
@@ -20,5 +8,3 @@
       <% end %>
 
       <%= link_to '一覧に戻る', task_path %>
-  </body>
-</html>
