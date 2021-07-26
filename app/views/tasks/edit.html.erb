@@ -1,13 +1,6 @@
 <h1>id: <%= @task.id %> のタスク編集ページ</h1>
       
-      <%= form_with(model: @task) do |f| %>
-      <%= f.label :status, 'ステータス'%>
-      <%= f.text_field :status %>
       
-      <%= f.label :content, '内容' %>
-      <%= f.text_field :content %>
-
-      <%= f.submit '投稿' %>
-      <% end %>
+      <%= render 'form', task: @task %>
 
       <%= link_to '一覧に戻る', task_path %>
