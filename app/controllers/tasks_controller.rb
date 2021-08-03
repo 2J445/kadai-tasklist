@@ -3,11 +3,8 @@ class TasksController < ApplicationController
     before_action :correct_user, only: [:destroy]
     
     def index
-        @tasks = Task.all
-        if logged_in?
           @task = current_user.tasks.build  # form_with 用
           @pagy, @tasks = pagy(current_user.tasks.order(id: :desc))
-        end
     end
 
     def show
@@ -39,10 +36,10 @@ class TasksController < ApplicationController
 
       if @task.update(task_params)
         flash[:success] = 'タスクは更新されました'
-        redirect_to @task
+        redirect_to root_url
       else
         flash.now[:danger] = 'タスクは更新されませんでした'
-        render :edit
+        render tasks/edit
       end
     end
 
