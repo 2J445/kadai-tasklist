@@ -21,7 +21,7 @@ class TasksController < ApplicationController
         else
             @pagy, @tasks = pagy(current_user.tasks.order(id: :desc))
             flash.now[:danger] = 'タスクリストに追加できませんでした'
-            render tasks/index
+            render :new
         end
     end
 
@@ -34,10 +34,10 @@ class TasksController < ApplicationController
 
       if @task.update(task_params)
         flash[:success] = 'タスクは更新されました'
-        redirect_to root_url
+        redirect_to @task
       else
         flash.now[:danger] = 'タスクは更新されませんでした'
-        render tasks/edit
+        render :edit
       end
     end
 
