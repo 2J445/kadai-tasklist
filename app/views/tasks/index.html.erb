@@ -1,12 +1,22 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
-  <h1>タスクリスト一覧</h1>
-      <ul>
-          <% @tasks.each do |task| %>
-           <li><%= link_to task.id, task %> : <%= task.status %>&gt; <%= task.content %></li>
-          <% end %>
-      </ul>
-      <%= link_to '新規タスクの投稿', new_task_path, class: "btn btn-primary" %>
+  <div class="row">
+    <aside class="col-sm-4">
+      <%= form_with(model: @task) do |f| %>
+        <div class="mb-3">
+          <%= f.label :status, 'ステータス' %>
+          <%= f.text_field :status %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :content, 'タスク' %>
+          <%= f.text_field :content %>
+        </div>
+        <%= f.submit '投稿', class: 'btn btn-primary w-100' %>
+      <% end %>
+    </aside>
+    <div class="col-sm-8">
+      <%= render 'tasks/tasks', tasks: @tasks %>
+    </div>
+  </div>
 <% else %>
   <div class="bg-secondary p-3 p-sm-5 my-4 rounded">
     <div class="text-center text-white">
@@ -15,4 +25,3 @@
     </div>
   </div>
 <% end %>
-      
