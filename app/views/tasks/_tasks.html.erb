@@ -8,7 +8,7 @@
             <%= link_to task.user.name, user_path(task.user), class: "text-decoration-none" %> <span class="text-muted">posted at <%= task.created_at %></span>
           </div>
           <div>
-            <p>ステータス：<%= task.status %></p>
+            <p>ステータス：<%= link_to task.status, task %></p>
             <p>タスク：<%= task.content %></p>
           </div>
           <div>
