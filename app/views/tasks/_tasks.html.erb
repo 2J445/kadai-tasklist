@@ -5,9 +5,6 @@
         <img class="rounded me-2 mb-5" src="<%= gravatar_url(task.user, { size: 64 }) %>" alt="">
         <div>
           <div>
-            <%= link_to task.user.name, user_path(task.user), class: "text-decoration-none" %> <span class="text-muted">posted at <%= task.created_at %></span>
-          </div>
-          <div>
             <p>ステータス：<%= link_to task.status, task %></p>
             <p>タスク：<%= task.content %></p>
           </div>
